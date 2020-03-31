@@ -76,3 +76,9 @@ systemctl reboot -i;
 #I was initially frustrated that WN822N Router was shitty on my Linux Mint. I ended up fixing TP-#Link provided driver until I found this Mange's RTL8912EU driver which has full support for Linux/#Windows compilation. After installing this driver, I'm kind of happy with the performance.
 #I hope this resolves your problem.
 ################# WORKS like charm!!!!!!!!!!
+
+
+
+python-numpy python-opencv
+
+gnuplot-x11
