@@ -1,0 +1,78 @@
+gnome-session-flashback
+
+google-chrome via deb download
+
+nvme-cli #see wiki.archlinux.org/index.php/Solid_state_drive/NVMe
+
+#### foam-extend-4.0 install: ######
+sudo apt install git-core build-essential binutils-dev cmake flex \
+zlib1g-dev qt4-dev-tools libqt4-dev libncurses5-dev \
+libxt-dev rpm mercurial graphviz python python-dev  gcc-5 g++-5
+#
+cd ~
+mkdir foam
+cd foam
+git clone git://git.code.sf.net/p/foam-extend/foam-extend-4.0 foam-extend-4.0
+#
+cd ~/foam/foam-extend-4.0
+#
+echo export WM_THIRD_PARTY_USE_BISON_27=1  >> etc/prefs.sh
+echo export QT_SELECT=qt4  >> etc/prefs.sh
+echo "export WM_CC='gcc-5'"  >> etc/prefs.sh
+echo "export WM_CXX='g++-5'"  >> etc/prefs.sh
+echo "export QT_BIN_DIR=/usr/bin/" >> etc/prefs.sh
+## THEN add export FOAM_VERBOSE=1 to bashrc
+source etc/bashrc
+sed -i -e 's=rpmbuild --define=rpmbuild --define "_build_id_links none" --define=' ThirdParty/tools/makeThirdPartyFunctionsForRPM
+sed -i -e 's/gcc/\$(WM_CC)/' wmake/rules/linux64Gcc/c
+sed -i -e 's/g++/\$(WM_CXX)/' wmake/rules/linux64Gcc/c++
+#
+sed -i 's/wmake all solvers/#wmake all solvers/' applications/Allwmake
+#
+./Allwmake.firstInstall
+######################################
+
+sudo apt install gimp imagej kate konsole kile ipython
+
+ubuntu-restricted-extras ffmpeg vlc
+
+nvidia-driver-390
+
+sshfs git
+
+#download blender and do
+cd /usr/bin
+sudo ln -s ~/Programme/blender-2.79b-linux-glibc219-x86_64/blender blender
+
+
+
+
+
+
+
+######### install Mange driver for TL-WN823N Wlan stick:
+#Install RTL8192EU Driver
+
+git clone https://github.com/Mange/rtl8192eu-linux-driver;
+cd rtl8192eu-linux-driver;
+sudo dkms add .;
+sudo dkms install rtl8192eu/1.0;
+
+#Blacklist RTL8XXXU Driver
+echo "blacklist rtl8xxxu" | sudo tee /etc/modprobe.d/rtl8xxxu.conf;
+
+#Resolve Idle PM issues (Check issue #94)
+echo "options 8192eu rtw_power_mgnt=0 rtw_enusbss=0" | sudo tee /etc/modprobe.d/8192eu.conf;
+
+#Force RTL8192EU Driver to be active at boot
+echo -e "8192eu\n\nloop" | sudo tee /etc/modules;
+
+#Update changes
+sudo update-grub; sudo update-initramfs -u;
+
+#Reboot
+systemctl reboot -i;
+
+#I was initially frustrated that WN822N Router was shitty on my Linux Mint. I ended up fixing TP-#Link provided driver until I found this Mange's RTL8912EU driver which has full support for Linux/#Windows compilation. After installing this driver, I'm kind of happy with the performance.
+#I hope this resolves your problem.
+################# WORKS like charm!!!!!!!!!!
