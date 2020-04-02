@@ -1,0 +1,10 @@
+the best benchmarking test for cfd is found here:
+
+https://openfoamwiki.net/index.php/Benchmarks
+https://www.cfd-online.com/Forums/hardware/198378-openfoam-benchmarks-various-hardware.html
+
+I put a raw folder for fext40 into this repo.
+In fext-benchmark/basecase/constant/trisurface there is an eMesh file that was
+created by me via openfoam-7 and surfaceFeatureExtract from the respective
+motorbike.obj.gz that's available in the directory of 
+openfoam-7/tutorials/resources/geometries/

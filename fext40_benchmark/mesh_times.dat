@@ -1,0 +1,12 @@
+# Max Koch run on kinkade (ryzen 9 3950x) 2020-04-03
+#threads time_to_create_meshes
+#-----------
+24  4m3,833s
+20  3m49,962s
+16  3m38,042s
+12  3m47,028s
+8   4m17,802s
+6   5m1,818s
+4   6m44,808s
+2  10m43,930s
+1  15m52,467s
