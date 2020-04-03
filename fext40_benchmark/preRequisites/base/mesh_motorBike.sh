@@ -15,6 +15,9 @@ cd motorBike
 
 runApplication blockMesh
 runApplication snappyHexMesh -overwrite
+echo "end of log.snappyHexMesh:"
+echo "---------" 
+tail -n 10 log.snappyHexMesh
 cd ..
 #\rm -rf constant/polyMesh
 #\mv 3/polyMesh constant

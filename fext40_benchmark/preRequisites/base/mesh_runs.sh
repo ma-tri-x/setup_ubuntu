@@ -22,6 +22,9 @@ for i in 24 20 16 12 8 6 4 2 1;do
         rm -rf proc* log.*
         echo "decomposing..."
         decomposePar > log.decomposePar 2>&1
+        echo "end of log.decomposePar:"
+        echo "---------" 
+        tail -n 10 log.decomposePar
    fi
    cd ..
 done

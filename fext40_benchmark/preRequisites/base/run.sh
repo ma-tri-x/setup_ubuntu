@@ -1,8 +1,6 @@
 #!/bin/bash
 
-rundirs=run_*
-
-if [[ $rundirs == "run_*" ]]
+if [ ! -d run_1 ]
 then
     echo "run dirs were not meshed yet. Run first:"
     echo "./mesh_runs.sh"
