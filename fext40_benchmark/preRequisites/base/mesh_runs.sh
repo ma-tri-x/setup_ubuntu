@@ -10,7 +10,7 @@ then
 fi
 
 # Prepare cases
-for i in 24; do # 20 16 12 8 6 4 2 1;do
+for i in 24 20 16 12 8 6 4 2 1;do
    d=run_$i
    echo "Prepare case ${d}..."
    cp -r motorBike $d
