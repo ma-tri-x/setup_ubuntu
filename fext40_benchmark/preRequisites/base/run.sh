@@ -28,7 +28,7 @@ done
 echo "# cores   Wall time (s):"
 echo "------------------------"
 for i in $nums; do
-    echo $i `grep Execution run_${i}/log.simpleFoam | tail -n 1 | cut -d " " -f 3`
+    echo $i `grep Clock run_${i}/log.simpleFoam | tail -n 1 | cut -d " " -f 8`
 done
 
  
