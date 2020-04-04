@@ -9,8 +9,11 @@ then
     exit 1
 fi
 
+nums=$(cat thread_numbers.input)
+revnums=$(python helper_scripts/reverse.py)
+
 # Prepare cases
-for i in 24 20 16 12 8 6 4 2 1;do
+for i in $revnums;do
    d=run_$i
    echo "Prepare case ${d}..."
    cp -r motorBike $d
