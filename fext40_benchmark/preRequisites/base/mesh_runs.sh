@@ -16,6 +16,7 @@ revnums=$(python helper_scripts/reverse.py)
 for i in $revnums;do
    d=run_$i
    echo "Prepare case ${d}..."
+   rm -rf $d
    cp -r motorBike $d
    cd $d
    if [ ! $i -eq 1 ] 
