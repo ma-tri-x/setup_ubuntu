@@ -1,6 +1,11 @@
 #!/bin/bash
 
-if [ ! -d run_1 ]
+nums=$(cat thread_numbers.input)
+revnums=$(python helper_scripts/reverse.py)
+
+first_run=run_$(echo $nums | cut -d " " -f 1)
+
+if [ ! -d $first_run ]
 then
     echo "run dirs were not meshed yet. Run first:"
     echo "./mesh_runs.sh"
