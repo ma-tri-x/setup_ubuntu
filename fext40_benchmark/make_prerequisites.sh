@@ -7,3 +7,4 @@ cp -v preRequisites/motorBike.eMesh.gz motorBike/constant/triSurface/
 cp -v preRequisites/blockMeshDict motorBike/constant/polyMesh/
 cp -v preRequisites/system/* motorBike/system/
 cp -v preRequisites/base/* .
+if [ $WM_PROJECT == "OpenFOAM" ];then mv motorBike/system/controlDictOF motorBike/system/controlDict;fi
